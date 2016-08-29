@@ -1,0 +1,36 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EmailFragment">
+    <TextView
+        android:layout_width="388dp"
+        android:layout_height="wrap_content"
+        android:text="@string/emails"
+        android:layout_marginTop="100dp"
+        android:padding="15dp"
+        android:fontFamily="sans-serif"
+        android:textSize="28dp"
+        android:gravity="center_horizontal"
+        android:textIsSelectable="false"
+        />
+    <!-- TODO: Update blank fragment layout -->
+    <!--TODO: Change the layout-->
+    <EditText
+        android:id="@+id/email_edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:hint="me@calpoly.edu"/>
+    <Button
+        android:id="@+id/email_next_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="100dp"
+        android:text="@string/go"/>
+
+
+
+
+</FrameLayout>

@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">ContactApp</string>
+    <string name="action_settings">Settings</string>
+    <string name="welcome_fragment">Welcome!</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="register">Register</string>
+    <string name="go">Next</string>
+    <string name="emails">Enter your Cal Poly email.</string>
+    <string name="name">Enter your name</string>
+    <string name="last_name">Last Name</string>
+    <string name="first_name">First Name</string>
+    <string name="year">Enter your Class Standing</string>
+</resources>
