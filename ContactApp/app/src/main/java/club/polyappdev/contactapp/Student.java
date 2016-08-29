@@ -25,20 +25,20 @@ public class Student {
      * @param firstName
      * @param lastName
      * @param email
-     * @param iiOS
+     * @param iOS
      * @param iAndroid
      * @param iWindows
      * @param pizza
      * @param soda
      * @param year
      */
-    public Student(String firstName, String lastName, String email, boolean iAndroid, boolean iiOS, boolean iWindows,
+    public Student(String firstName, String lastName, String email, boolean iAndroid, boolean iOS, boolean iWindows,
                    String pizza, String soda, String year) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.InterestedAndroid = iAndroid;
-        this.InterestediOS = iiOS;
+        this.InterestediOS = iOS;
         this.InterestedWindows = iWindows;
         this.pizza = pizza;
         this.soda = soda;
