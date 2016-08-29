@@ -50,6 +50,7 @@ public class EmailFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 if (emailText.getText().toString().contains("@")){
+                    mListener.EmailFragmentListener(emailText.getText().toString());
                     Fragment fragment = new NameFragment();
                     FragmentManager fragmentManager = getFragmentManager();
                     fragmentManager.beginTransaction()
@@ -95,6 +96,6 @@ public class EmailFragment extends Fragment {
      */
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
+        void EmailFragmentListener(String email);
     }
 }

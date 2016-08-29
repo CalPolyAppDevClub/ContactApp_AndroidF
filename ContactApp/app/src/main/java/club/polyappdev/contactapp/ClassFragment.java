@@ -75,6 +75,7 @@ public class ClassFragment extends Fragment {
         this.goButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                mListener.ClassFragmentListener(year.getText().toString());
                 Fragment fragment = new PlatformSelectFragment();
                 FragmentManager fragmentManager = getFragmentManager();
                 fragmentManager.beginTransaction()
@@ -90,13 +91,6 @@ public class ClassFragment extends Fragment {
                 return false;
             }
         });
-    }
-
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
     }
 
     @Override
@@ -128,7 +122,7 @@ public class ClassFragment extends Fragment {
      */
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
+        void ClassFragmentListener(String classlevel);
     }
 
     private String convertValue(float value) {

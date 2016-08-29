@@ -40,6 +40,7 @@ public class FavoritePizzaFragment extends Fragment {
         nextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                mListener.FavoritePizzaListener(favoritePizza.getText().toString());
                 Fragment fragment = new FavoriteSodaFragment();
                 FragmentManager fragmentManager = getFragmentManager();
                 fragmentManager.beginTransaction()
@@ -49,13 +50,6 @@ public class FavoritePizzaFragment extends Fragment {
         });
         return view;
 
-    }
-
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
     }
 
     @Override
@@ -87,6 +81,6 @@ public class FavoritePizzaFragment extends Fragment {
      */
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
+        void FavoritePizzaListener(String favPizza);
     }
 }

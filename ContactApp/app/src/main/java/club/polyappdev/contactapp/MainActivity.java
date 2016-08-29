@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements EmailFragment.OnFragmentInteractionListener,
 NameFragment.OnFragmentInteractionListener,
@@ -17,12 +18,15 @@ FavoritePizzaFragment.OnFragmentInteractionListener,
 FavoriteSodaFragment.OnFragmentInteractionListener,
 DoneFragment.OnFragmentInteractionListener {
 
+    protected Student s;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        s = new Student();
         Fragment fragment = new MainActivityFragment();
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction()
@@ -54,7 +58,42 @@ DoneFragment.OnFragmentInteractionListener {
 
 
     @Override
-    public void onFragmentInteraction(Uri uri) {
-
+    public void EmailFragmentListener(String email) {
+        s.setEmail(email);
     }
+
+    @Override
+    public void NameFragmentListener(String first, String last) {
+        s.setFirstName(first);
+        s.setLastName(last);
+    }
+
+    @Override
+    public void ClassFragmentListener(String classlevel){
+        s.setYear(classlevel);
+    }
+
+    @Override
+    public void PlatformSelectListener(boolean ios, boolean android, boolean windows){
+        s.setInterestedAndroid(android);
+        s.setInterestediOS(ios);
+        s.setInterestedWindows(windows);
+    }
+
+    @Override
+    public void FavoritePizzaListener(String favPizza){
+        s.setPizza(favPizza);
+    }
+
+    @Override
+    public void FavoriteSodaListener(String favSoda) {
+        s.setSoda(favSoda);
+    }
+
+    @Override
+    public void DoneListener() {
+        Toast.makeText(this, s.getFirstName(),
+                Toast.LENGTH_LONG).show();
+    }
+
 }
