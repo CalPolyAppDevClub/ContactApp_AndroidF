@@ -18,7 +18,7 @@ FavoritePizzaFragment.OnFragmentInteractionListener,
 FavoriteSodaFragment.OnFragmentInteractionListener,
 DoneFragment.OnFragmentInteractionListener {
 
-    protected Student s;
+    protected Student curStudent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +26,7 @@ DoneFragment.OnFragmentInteractionListener {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        s = new Student();
+        curStudent = new Student();
         Fragment fragment = new MainActivityFragment();
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction()
@@ -59,40 +59,40 @@ DoneFragment.OnFragmentInteractionListener {
 
     @Override
     public void EmailFragmentListener(String email) {
-        s.setEmail(email);
+        curStudent.setEmail(email);
     }
 
     @Override
     public void NameFragmentListener(String first, String last) {
-        s.setFirstName(first);
-        s.setLastName(last);
+        curStudent.setFirstName(first);
+        curStudent.setLastName(last);
     }
 
     @Override
     public void ClassFragmentListener(String classlevel){
-        s.setYear(classlevel);
+        curStudent.setYear(classlevel);
     }
 
     @Override
     public void PlatformSelectListener(boolean ios, boolean android, boolean windows){
-        s.setInterestedAndroid(android);
-        s.setInterestediOS(ios);
-        s.setInterestedWindows(windows);
+        curStudent.setInterestedAndroid(android);
+        curStudent.setInterestediOS(ios);
+        curStudent.setInterestedWindows(windows);
     }
 
     @Override
     public void FavoritePizzaListener(String favPizza){
-        s.setPizza(favPizza);
+        curStudent.setPizza(favPizza);
     }
 
     @Override
     public void FavoriteSodaListener(String favSoda) {
-        s.setSoda(favSoda);
+        curStudent.setSoda(favSoda);
     }
 
     @Override
     public void DoneListener() {
-        Toast.makeText(this, s.getFirstName(),
+        Toast.makeText(this, curStudent.getFirstName(),
                 Toast.LENGTH_LONG).show();
     }
 
