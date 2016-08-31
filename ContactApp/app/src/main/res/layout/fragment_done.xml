@@ -7,19 +7,20 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Done"
-        android:layout_gravity="center"
+        android:text="@string/thanks"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="120dp"
         android:textSize="28dp"
         android:padding="15dp"
         />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="See you in the Fall!!"
+        android:text="@string/we_ll_see_you_at_our_first_meeting"
         android:gravity="center"
         android:padding="15dp"
-        android:layout_marginLeft="10dp"
         android:layout_marginTop="50dp"
         android:textSize="28dp"/>
 

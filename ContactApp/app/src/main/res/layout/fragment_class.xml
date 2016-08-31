@@ -30,11 +30,13 @@
         android:layout_gravity="center"
         />
     <Button
+        android:id="@+id/class_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/class_button"
+        android:layout_gravity="right|bottom"
+        android:layout_marginTop="150dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginRight="20dp"
         android:text="@string/go"
-        android:layout_gravity="center"
-        android:layout_marginTop="100dp"/>
-
+        style="@style/Widget.AppCompat.Button.Borderless.Colored" />
 </FrameLayout>

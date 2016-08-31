@@ -1,5 +1,6 @@
 package club.polyappdev.contactapp;
 
+import android.app.Activity;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
@@ -8,6 +9,7 @@ import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -44,8 +46,19 @@ public class FavoritePizzaFragment extends Fragment {
                 Fragment fragment = new FavoriteSodaFragment();
                 FragmentManager fragmentManager = getFragmentManager();
                 fragmentManager.beginTransaction()
+                        .addToBackStack(null)
                         .replace(R.id.content_frame, fragment)
                         .commit();
+            }
+        });
+
+        favoritePizza.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean b) {
+                if (!b){
+                    InputMethodManager inputMethodManager =(InputMethodManager)getActivity().getSystemService(Activity.INPUT_METHOD_SERVICE);
+                    inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
+                }
             }
         });
         return view;

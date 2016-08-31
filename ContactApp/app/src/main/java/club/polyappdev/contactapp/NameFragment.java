@@ -1,5 +1,6 @@
 package club.polyappdev.contactapp;
 
+import android.app.Activity;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
@@ -8,6 +9,7 @@ import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -46,11 +48,9 @@ public class NameFragment extends Fragment {
             public void onClick(View v) {
                 if (!firstName.getText().toString().isEmpty()  && !lastName.getText().toString().isEmpty()){
                     mListener.NameFragmentListener(firstName.getText().toString(), lastName.getText().toString());
-                    Fragment fragment = new ClassFragment();
+                    Fragment fragment = new EmailFragment();
                     FragmentManager fragmentManager = getFragmentManager();
-                    fragmentManager.beginTransaction()
-                            .replace(R.id.content_frame, fragment)
-                            .commit();
+                    fragmentManager.beginTransaction().addToBackStack(null).replace(R.id.content_frame, fragment).commit();
                 }
                 else {
                     Toast.makeText(getActivity(), "Invalid first or last name.",
@@ -59,9 +59,31 @@ public class NameFragment extends Fragment {
             }
         });
 
+        firstName.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean hasFocus) {
+                if (!hasFocus) {
+                    hideKeyboard(view);
+                }
+            }
+        });
+
+        lastName.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean hasFocus) {
+                if (!hasFocus) {
+                    hideKeyboard(view);
+                }
+            }
+        });
+
+
         return view;
     }
-
+    public void hideKeyboard(View view) {
+        InputMethodManager inputMethodManager =(InputMethodManager)getActivity().getSystemService(Activity.INPUT_METHOD_SERVICE);
+        inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
+    }
 
 
     @Override
@@ -95,4 +117,6 @@ public class NameFragment extends Fragment {
         // TODO: Update argument type and name
         void NameFragmentListener(String first, String last);
     }
+
+
 }

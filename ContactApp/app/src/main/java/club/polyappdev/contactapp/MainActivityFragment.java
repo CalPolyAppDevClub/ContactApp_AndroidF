@@ -27,7 +27,7 @@ public class MainActivityFragment extends Fragment {
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Fragment fragment = new EmailFragment();
+                Fragment fragment = new NameFragment();
                 FragmentManager fragmentManager = getFragmentManager();
                 fragmentManager.beginTransaction()
                         .replace(R.id.content_frame, fragment)

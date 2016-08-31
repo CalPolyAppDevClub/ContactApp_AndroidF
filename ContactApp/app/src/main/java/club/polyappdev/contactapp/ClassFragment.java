@@ -79,6 +79,7 @@ public class ClassFragment extends Fragment {
                 Fragment fragment = new PlatformSelectFragment();
                 FragmentManager fragmentManager = getFragmentManager();
                 fragmentManager.beginTransaction()
+                        .addToBackStack(null)
                         .replace(R.id.content_frame, fragment)
                         .commit();
             }

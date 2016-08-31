@@ -24,8 +24,6 @@ DoneFragment.OnFragmentInteractionListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
         curStudent = new Student();
         Fragment fragment = new MainActivityFragment();
         FragmentManager fragmentManager = getSupportFragmentManager();
@@ -66,6 +64,15 @@ DoneFragment.OnFragmentInteractionListener {
     public void NameFragmentListener(String first, String last) {
         curStudent.setFirstName(first);
         curStudent.setLastName(last);
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (getFragmentManager().getBackStackEntryCount() > 0) {
+            getFragmentManager().popBackStack();
+        } else {
+            super.onBackPressed();
+        }
     }
 
     @Override

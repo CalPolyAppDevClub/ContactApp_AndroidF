@@ -18,8 +18,9 @@
         android:fontFamily="sans-serif"
         android:textSize="16sp"
         android:textAllCaps="true"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="145dp" />
 
     <TextView
         android:padding="5dp"
@@ -30,8 +31,18 @@
         android:fontFamily="sans-serif"
         android:elegantTextHeight="true"
         android:textSize="28dp"
-        android:layout_marginBottom="59dp"
-        android:layout_above="@+id/welcome_next_frag_btn"
-        android:layout_centerHorizontal="true" />
+        android:layout_marginTop="41dp"
+        android:layout_below="@+id/imageView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <ImageView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:id="@+id/imageView"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/cpappdev" />
 
 </RelativeLayout>

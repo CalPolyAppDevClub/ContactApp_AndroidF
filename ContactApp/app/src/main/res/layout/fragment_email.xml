@@ -8,10 +8,10 @@
         android:layout_height="wrap_content"
         android:text="@string/emails"
         android:layout_marginTop="100dp"
-        android:padding="15dp"
+        android:layout_marginLeft="15dp"
+
         android:fontFamily="sans-serif"
         android:textSize="28dp"
-        android:gravity="center_horizontal"
         android:textIsSelectable="false"
         />
     <!-- TODO: Update blank fragment layout -->
@@ -21,16 +21,28 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:hint="me@calpoly.edu"/>
+        android:hint="me@calpoly.edu"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp" />
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:id="@+id/imageView2"
+        android:layout_gravity="center_horizontal|top"
+        android:src="@drawable/cpappdev" />
+
     <Button
         android:id="@+id/email_next_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="100dp"
-        android:text="@string/go"/>
-
-
+        android:layout_gravity="right|bottom"
+        android:layout_marginTop="150dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginRight="20dp"
+        android:text="@string/go"
+        style="@style/Widget.AppCompat.Button.Borderless.Colored" />
 
 
 </FrameLayout>

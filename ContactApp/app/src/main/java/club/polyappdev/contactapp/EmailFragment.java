@@ -1,5 +1,6 @@
 package club.polyappdev.contactapp;
 
+import android.app.Activity;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
@@ -9,6 +10,7 @@ import android.support.v4.widget.TextViewCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -19,7 +21,7 @@ import android.widget.Toast;
  * Activities that contain this fragment must implement the
  * {@link EmailFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link EmailFragment#newInstance} factory method to
+ * Use the {@link EmailFragment factory method to
  * create an instance of this fragment.
  */
 public class EmailFragment extends Fragment {
@@ -51,9 +53,10 @@ public class EmailFragment extends Fragment {
             public void onClick(View v) {
                 if (emailText.getText().toString().contains("@")){
                     mListener.EmailFragmentListener(emailText.getText().toString());
-                    Fragment fragment = new NameFragment();
+                    Fragment fragment = new ClassFragment();
                     FragmentManager fragmentManager = getFragmentManager();
                     fragmentManager.beginTransaction()
+                            .addToBackStack(null)
                             .replace(R.id.content_frame, fragment)
                             .commit();
                 }
@@ -61,6 +64,17 @@ public class EmailFragment extends Fragment {
                     Toast.makeText(getActivity(), "Invalid email.",
                             Toast.LENGTH_SHORT).show();
                 }
+            }
+        });
+
+        emailText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean b) {
+                if (!b){
+                    InputMethodManager inputMethodManager =(InputMethodManager)getActivity().getSystemService(Activity.INPUT_METHOD_SERVICE);
+                    inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
+                }
+
             }
         });
         return view;

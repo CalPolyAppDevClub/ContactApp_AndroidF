@@ -71,6 +71,7 @@ public class PlatformSelectFragment extends Fragment {
                 Fragment fragment = new FavoritePizzaFragment();
                 FragmentManager fragmentManager = getFragmentManager();
                 fragmentManager.beginTransaction()
+                        .addToBackStack(null)
                         .replace(R.id.content_frame, fragment)
                         .commit();
             }

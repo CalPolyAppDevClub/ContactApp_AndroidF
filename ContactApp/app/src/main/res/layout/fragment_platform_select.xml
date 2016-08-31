@@ -9,7 +9,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="26dp"
-        android:text="What platforms do you want to write an app for?"
+        android:text="@string/interested_platforms"
         android:gravity="center_horizontal"
         android:layout_marginTop="100dp"
         android:padding="17dp"/>
@@ -23,29 +23,29 @@
         <CheckBox android:id="@+id/checkbox_iOS"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="iOS"
-            android:onClick="onCheckboxClicked"/>
+            android:text="iOS"/>
 
         <CheckBox android:id="@+id/checkbox_android"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Android"
-            android:onClick="onCheckboxClicked"/>
+            android:text="Android"/>
 
         <CheckBox android:id="@+id/checkbox_windows"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Windows"
-            android:onClick="onCheckboxClicked"/>
+            android:text="Windows" />
 
     </LinearLayout>
 
     <Button
         android:id="@+id/btn_platform"
-        android:layout_marginTop="100dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="right|bottom"
+        android:layout_marginTop="150dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginRight="20dp"
         android:text="@string/go"
-        android:layout_gravity="center"/>
+        style="@style/Widget.AppCompat.Button.Borderless.Colored" />
 
 </FrameLayout>
