@@ -11,9 +11,9 @@ public class Student {
     private boolean InterestedAndroid;
     private boolean InterestediOS;
     private boolean InterestedWindows;
-    private String pizza;
-    private String year;
-    private String soda;
+    private String favoritePizza;
+    private String classStanding;
+    private String favoriteSoda;
 
     //need an empty constructor
     public Student() {
@@ -40,9 +40,9 @@ public class Student {
         this.InterestedAndroid = iAndroid;
         this.InterestediOS = iOS;
         this.InterestedWindows = iWindows;
-        this.pizza = pizza;
-        this.soda = soda;
-        this.year = year;
+        this.favoritePizza = pizza;
+        this.favoriteSoda = soda;
+        this.classStanding = year;
     }
 
 
@@ -70,16 +70,14 @@ public class Student {
         return this.InterestediOS;
     }
 
-    public String getPizza() {
-        return this.pizza;
-    }
+    public String getPizza() { return this.favoritePizza; }
 
     public String getSoda() {
-        return this.soda;
+        return this.favoriteSoda;
     }
 
     public String getYear() {
-        return this.year;
+        return this.classStanding;
     }
 
     public void setFirstName(String firstName) {
@@ -106,15 +104,13 @@ public class Student {
         this.InterestediOS = interest;
     }
 
-    public void setPizza(String pizza) {
-        this.pizza = pizza;
-    }
+    public void setPizza(String pizza){ this.favoritePizza = pizza; }
 
     public void setYear(String year) {
-        this.year = year;
+        this.classStanding = year;
     }
 
     public void setSoda(String soda) {
-        this.soda = soda;
+        this.favoriteSoda = soda;
     }
 }

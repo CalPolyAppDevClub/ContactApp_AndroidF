@@ -6,9 +6,24 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.http.GET;
+import retrofit2.http.Header;
+import retrofit2.http.Headers;
+import retrofit2.http.POST;
 
 public class MainActivity extends AppCompatActivity implements EmailFragment.OnFragmentInteractionListener,
 NameFragment.OnFragmentInteractionListener,
@@ -101,6 +116,43 @@ DoneFragment.OnFragmentInteractionListener {
     public void DoneListener() {
         Toast.makeText(this, curStudent.getFirstName(),
                 Toast.LENGTH_LONG).show();
+
+        int statusCode = 0;
+        String BASE_URL = "https://polyapp.azurewebsites.net/";
+
+
+        Gson gson = new GsonBuilder()
+                .setDateFormat("yyyy-MM-dd'T'HH:mm:ssZ")
+                .create();
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create(gson))
+                .build();
+
+        MyApiEndpointInterface apiService = retrofit.create(MyApiEndpointInterface.class);
+
+        Call<ResponseBody> call = apiService.addUser(curStudent);
+
+        call.enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                Log.i("http success", "1");
+                Log.i("http", response.message());
+                curStudent = new Student();
+                finish();
+                startActivity(getIntent());
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                Log.e("http fail", t.getMessage());
+                finish();
+                startActivity(getIntent());
+            }
+        });
+
     }
 
 }
+
